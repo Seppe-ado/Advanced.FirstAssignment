@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Advanced.FirstAssignment
 {
+    
     internal class Boek
     {
+
+        public static int counter = 1;
 
         public int Isbn { get; set; }
         public string Naam { get; set; }
@@ -20,13 +24,16 @@ namespace Advanced.FirstAssignment
             return (Isbn + ", " + Naam + ", " + Uitgever + ", " + Prijs);
         }
 
-        public void Lees(Boek boek,int isbn,string naam, string uitgever,double prijs)
+        public void Lees(Boek boek,string naam, string uitgever,double prijs)
         {
-            boek.Isbn = isbn;
+            boek.Isbn = counter;
             boek.Naam = naam;
             boek.Uitgever = uitgever;
-            boek.Prijs = prijs; 
+            boek.Prijs = prijs;
+            counter++;
+            
 
         }
+        
     }
 }
