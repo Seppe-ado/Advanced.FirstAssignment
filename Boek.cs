@@ -18,10 +18,12 @@ namespace Advanced.FirstAssignment
         public string Uitgever { get; set; }
         public double Prijs { get; set; }
 
+        public Boek() { }
 
+        
         public override string ToString()
         {
-            return (Isbn + ", " + Naam + ", " + Uitgever + ", " + Prijs);
+            return ("Isbn: "+Isbn + ", Naam: " + Naam + ", Uitgever: " + Uitgever + ", Prijs: " + Prijs);
         }
 
         public void Lees(Boek boek,string naam, string uitgever,double prijs)
@@ -35,5 +37,6 @@ namespace Advanced.FirstAssignment
 
         }
         
+
     }
 }

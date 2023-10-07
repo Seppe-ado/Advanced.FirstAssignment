@@ -9,20 +9,34 @@ namespace Advanced.FirstAssignment
 {
     internal class TijdSchrift:Boek
     {
-        public string VerschijningsPeriode {  get; set; }
+        public Verschijningsperiode VerschijningsPeriode {  get; set; }
+        public enum Verschijningsperiode
+        {
+            Dagelijks,
+            Wekelijks,
+            Maandelijks
+        }
+        public TijdSchrift() { }
 
-        public void Lees(TijdSchrift tijdSchrift, string naam, string uitgever,string VerschijningsPeriode, double prijs)
+
+
+
+        public void Lees(TijdSchrift tijdSchrift, string naam, string uitgever,string VerschijningsPerioded, double prijs)
         {
             tijdSchrift.Isbn = counter;
             tijdSchrift.Naam = naam;
             tijdSchrift.Uitgever = uitgever;
             tijdSchrift.Prijs = prijs;
-            tijdSchrift.VerschijningsPeriode = VerschijningsPeriode;
+            Verschijningsperiode dataVerschijning = (Verschijningsperiode)Enum.Parse(typeof(Verschijningsperiode), VerschijningsPerioded);
+            tijdSchrift.VerschijningsPeriode = dataVerschijning;
             counter++;
+
+
+            
         }
         public override string ToString()
         {
-            return (Isbn + ", " + Naam + ", " + Uitgever + ", " + VerschijningsPeriode + ", " + Prijs);
+            return ("Isbn: "+Isbn + ", Naam: " + Naam + ", Uitgever: " + Uitgever + ", VerschijningsPeriode: " + VerschijningsPeriode + ", Prijs: " + Prijs);
         }
 
     }
